@@ -10,9 +10,11 @@ const start = async () => {
         await connectDB(process.env.MONGO_URI)
         await Product.deleteMany() //to remove all data before loading new
         await Product.create(jsonProducts)
-        console.log('Sucess');
+        console.log('Sucess')
+        process.exit(0)
     } catch (error) {
-        console.log(error);
+        console.log(error)
+        process.exit(1)
     }
 }
 start()
